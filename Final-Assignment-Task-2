@@ -1,1 +1,48 @@
+# TASK 2.1: Create a Dash application and give it a meaningful title. (2 points)
+import dash
+import dash_core_components as dcc
+import dash_html_components as html
 
+# Create a Dash app object
+app = dash.Dash(__name__)
+
+# Set the title of the app
+app.title = "Recession and Yearly Report Dashboard"
+
+# TASK 2.2: Add drop-downs to your dashboard with appropriate titles and options. (1 point)
+# Define the options for the recession drop-down
+recession_options = [
+    {"label": "2008 Recession", "value": "2008"},
+    {"label": "2020 Recession", "value": "2020"},
+]
+
+# Define the options for the year drop-down
+year_options = [
+    {"label": "2018", "value": "2018"},
+    {"label": "2019", "value": "2019"},
+    {"label": "2020", "value": "2020"},
+    {"label": "2021", "value": "2021"},
+]
+
+# Create the layout of the app
+app.layout = html.Div([
+    # Add a header with the app title
+    html.H1(app.title),
+    # Add a division for the recession drop-down
+    html.Div([
+        # Add a label for the recession drop-down
+        html.Label("Select a recession:"),
+        # Add the recession drop-down with an id and a default value
+        dcc.Dropdown(id="recession-dropdown", options=recession_options, value="2008")
+    ]),
+    # Add a division for the year drop-down
+    html.Div([
+        # Add a label for the year drop-down
+        html.Label("Select a year:"),
+        # Add the year drop-down with an id and a default value
+        dcc.Dropdown(id="year-dropdown", options=year_options, value="2018")
+    ]),
+    # TASK 2.3: Add a division for output display with appropriate 'id' and 'classname' property. (1 point)
+    # Add a division for the output display with an id and a classname
+    html.Div(id="output-container", className="output")
+])
