@@ -42,6 +42,8 @@ app.layout = html.Div([
         # Add the year drop-down with an id and a default value
         dcc.Dropdown(id="year-dropdown", options=year_options, value="2018")
     ]),
+
+
     # TASK 2.3: Add a division for output display with appropriate 'id' and 'classname' property.
     # Add a division for the output display with an id and a classname
     html.Div(id="output-container", className="output")
